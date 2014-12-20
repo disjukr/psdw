@@ -276,17 +276,17 @@ Object.defineProperty(psdw.PsdWriter.prototype, 'imageResources', {
     get: function () {
         var self = this;
         var imageResourceArray = [];
-        if (self.backgroundColor !== undefined) {
-            (function () {
-                var buffer = new ArrayBuffer(8);
-                var view = new DataView(buffer);
-                view.setUint16(0, 0); // RGB
-                view.setUint16(2, (self.backgroundColor.r * 0xffff) | 0);
-                view.setUint16(4, (self.backgroundColor.g * 0xffff) | 0);
-                view.setUint16(6, (self.backgroundColor.b * 0xffff) | 0);
-                imageResourceArray.push(psdw.PsdWriter.imageResource(0x03f2, buffer));
-            })();
-        }
+        // if (self.backgroundColor !== undefined) {
+        //     (function () {
+        //         var buffer = new ArrayBuffer(8);
+        //         var view = new DataView(buffer);
+        //         view.setUint16(0, 0); // RGB
+        //         view.setUint16(2, (self.backgroundColor.r * 0xffff) | 0);
+        //         view.setUint16(4, (self.backgroundColor.g * 0xffff) | 0);
+        //         view.setUint16(6, (self.backgroundColor.b * 0xffff) | 0);
+        //         imageResourceArray.push(psdw.PsdWriter.imageResource(0x03f2, buffer));
+        //     })();
+        // }
         var totalLength = imageResourceArray.reduce(function (prev, curr) {
             return prev + curr.byteLength;
         }, 0);

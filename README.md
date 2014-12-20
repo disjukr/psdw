@@ -6,7 +6,7 @@ simple javascript psd writer
 var psdBlob = psdw({
     width/* required */: 1, // pixel unit
     height/* required */: 1, // pixel unit
-    backgroundColor/* optional */: { r: 1, g: 1, b: 1 }, // white
+    flattenedImageData/* required */: new Uint8ClampedArray([0, 0, 0, 0]),
     layers: [
         { // bottom layer (background)
             name/* required */: 'psdw layer',
@@ -29,8 +29,7 @@ var psdBlob = psdw({
             height: 1
             // other properties...
         }
-    ],
-    flattenedImageData/* required */: new Uint8ClampedArray([0, 0, 0, 0])
+    ]
 }).blob;
 ```
 
