@@ -53,7 +53,7 @@ psdw.PsdWriter.pad2 = function pad2(len) {
     return len % 2;
 };
 psdw.PsdWriter.pad4 = function pad4(len) {
-    return 4 - (len % 4);
+    return (4 - (len % 4)) % 4;
 };
 psdw.PsdWriter.pascalString = function pascalString(value) { // 1 byte length + iso-8859-1
     var charCodeArray = value.substr(0, 0xff).split('').map(function (char) {
